@@ -98,7 +98,7 @@
         "y": 238.0235719680786,
         "wires": [
             [
-                "a0d23210.e1f4c"
+                "874f4873.d678f8"
             ]
         ]
     },
@@ -111,12 +111,12 @@
         "order": 0,
         "width": 0,
         "height": 0,
-        "format": "<span ng-if='msg.payload.message'>Garage Closed</span>\n<span ng-if='!msg.payload.message'>Garage Opened</span>\n",
+        "format": "<span ng-if='msg.payload.isClosed'>Garage Closed</span>\n<span ng-if='!msg.payload.isClosed'>Garage Opened</span>\n",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "templateScope": "local",
-        "x": 938.3726501464844,
-        "y": 238.58492946624756,
+        "x": 1103.3726501464844,
+        "y": 239.5849208831787,
         "wires": [
             []
         ]
@@ -159,6 +159,22 @@
         "y": 184.0424404144287,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "874f4873.d678f8",
+        "type": "function",
+        "z": "78ab0dd5.0a66e4",
+        "name": "Formatter",
+        "func": "msg.payload.isClosed = parseInt(msg.payload.message) == 1;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 873.3678970336914,
+        "y": 244.87738227844238,
+        "wires": [
+            [
+                "a0d23210.e1f4c"
+            ]
         ]
     },
     {
