@@ -34,7 +34,7 @@ let relayButtonPressAction = (pin) => {
     setTimeout(() => {
         gpioWrite(pin, 0);
         gpioUnexport(pin);
-    }, 750);
+    }, 500);
 }
 
 gpioExport(garageDoorStatusGpioPin, 'in');
