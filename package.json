@@ -1,0 +1,20 @@
+{
+  "name": "garagepi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gpio": "^0.2.7"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "gpio-js": "0.0.10",
+    "mqtt": "^2.15.3"
+  }
+}
