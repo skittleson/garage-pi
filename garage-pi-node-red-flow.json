@@ -1,0 +1,180 @@
+[
+    {
+        "id": "78ab0dd5.0a66e4",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "19afe6e0.9f32a9",
+        "type": "ui_button",
+        "z": "78ab0dd5.0a66e4",
+        "name": "",
+        "group": "d4ede8fe.b765e8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Garage Light Toggle",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 364.3632049560547,
+        "y": 133.39623260498047,
+        "wires": [
+            [
+                "1dd72e75.96f3c2"
+            ]
+        ]
+    },
+    {
+        "id": "1dd72e75.96f3c2",
+        "type": "http request",
+        "z": "78ab0dd5.0a66e4",
+        "name": "Light Toggle",
+        "method": "GET",
+        "ret": "txt",
+        "url": "http://192.168.0.105:8090/api/light/toggle",
+        "tls": "",
+        "x": 668.3678970336914,
+        "y": 133.41508293151855,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5d740391.5131fc",
+        "type": "ui_template",
+        "z": "78ab0dd5.0a66e4",
+        "group": "d4ede8fe.b765e8",
+        "name": "Garage Cam",
+        "order": 0,
+        "width": "6",
+        "height": "5",
+        "format": "<img src=\"http://192.168.0.105:8081/\" border=\"0\" width=\"25%\">\n\n<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 342.3632278442383,
+        "y": 63.20278739929199,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3d140cc3.22ceb4",
+        "type": "inject",
+        "z": "78ab0dd5.0a66e4",
+        "name": "Garage Door Interval Check",
+        "topic": "garage",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "30",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 387.36322021484375,
+        "y": 237.18867588043213,
+        "wires": [
+            [
+                "1cfda7dc.c22138"
+            ]
+        ]
+    },
+    {
+        "id": "1cfda7dc.c22138",
+        "type": "http request",
+        "z": "78ab0dd5.0a66e4",
+        "name": "Garage Status",
+        "method": "GET",
+        "ret": "obj",
+        "url": "http://192.168.0.105:8090/api/garage/status",
+        "tls": "",
+        "x": 668.0141372680664,
+        "y": 238.0235719680786,
+        "wires": [
+            [
+                "a0d23210.e1f4c"
+            ]
+        ]
+    },
+    {
+        "id": "a0d23210.e1f4c",
+        "type": "ui_template",
+        "z": "78ab0dd5.0a66e4",
+        "group": "d4ede8fe.b765e8",
+        "name": "Garage Status Template",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "format": "<span ng-if='msg.payload.message'>Garage Closed</span>\n<span ng-if='!msg.payload.message'>Garage Opened</span>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 938.3726501464844,
+        "y": 238.58492946624756,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "efe70acd.6b86e8",
+        "type": "ui_button",
+        "z": "78ab0dd5.0a66e4",
+        "name": "",
+        "group": "d4ede8fe.b765e8",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "label": "Garage Door Toggle",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 364.01416778564453,
+        "y": 181.02358675003052,
+        "wires": [
+            [
+                "58e77192.cae74"
+            ]
+        ]
+    },
+    {
+        "id": "58e77192.cae74",
+        "type": "http request",
+        "z": "78ab0dd5.0a66e4",
+        "name": "Garage Toggle",
+        "method": "GET",
+        "ret": "txt",
+        "url": "http://192.168.0.105:8090/api/garage/toggle",
+        "tls": "",
+        "x": 671.0188522338867,
+        "y": 184.0424404144287,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d4ede8fe.b765e8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Current Conditions",
+        "tab": "409c7961.f5e248",
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "409c7961.f5e248",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard"
+    }
+]
