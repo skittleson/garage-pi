@@ -9,4 +9,4 @@ Start container in privileged mode.
 
 Access the api `curl http://localhost:8090/api`
 
-Check out the [blog post](https://docodethatmatters.com/yet-another-raspberry-pi-garage-door-opener/) for details.
+Check out the [blog post](https://docodethatmatters.com/yet-another-garage-door-opener/) for details.
